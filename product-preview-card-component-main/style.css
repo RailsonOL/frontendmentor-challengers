@@ -109,7 +109,7 @@ p.product-type {
     font-weight: var(--fw-regular);
     color: var(--clr-neutral-darkgrayishblue);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
 }
 
 article.preview-card {
