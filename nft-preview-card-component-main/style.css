@@ -96,7 +96,7 @@ picture .main{
 }
 
 h2{
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-bold);
     font-size: 1.4rem;
     margin: 0;
     margin-bottom: 0.5rem;
@@ -109,7 +109,7 @@ h2{
 }
 
 .flex-group span{
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-bold);
     color: var(--clr-primary-cyan);
     display: block;
     margin: auto 0.1rem;
