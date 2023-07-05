@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+
+    --clr-primary-softblue: hsl(215, 51%, 70%);
+    --clr-primary-cyan: hsl(178, 100%, 50%);
+    --clr-neutral-very-dark-blue-1: hsl(217, 54%, 11%);
+    /* (main BG) */
+    --clr-neutral-very-dark-blue-2: hsl(216, 50%, 16%);
+    /* (card BG) */
+    --clr-neutral-very-dark-blue-3: hsl(215, 32%, 27%);
+    /* (line) */
+    --clr-neutral-white: hsl(0, 0%, 100%);
+
+    --font-default: 'Outfit', sans-serif;
+    --fw-regular: 300;
+    --fw-medium: 400;
+    --fw-bold: 600;
+}
+
+body {
+    background-color: var(--clr-neutral-very-dark-blue-1);
+    font-family: var(--font-default);
+    font-weight: var(--fw-regular);
+    color: var(--clr-neutral-white);
+    font-size: 1.10rem;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+p {
+    color: var(--clr-primary-softblue);
+}
+
+a{
+    text-decoration: none;
+    color: var(--clr-neutral-white);
+}
+a:hover{
+    color: var(--clr-primary-cyan);
+}
+
+.nft-card-component {
+    background-color: var(--clr-neutral-very-dark-blue-2);
+    border-radius: 1rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 1.6rem;
+    max-width: 19rem;
+    gap: 1.5rem;
+}
+
+/* .info{
+    display: grid;
+    gap: 0.6rem;
+} */
+
+
+picture{
+    display: grid;
+    overflow: hidden;
+    position: relative;
+}
+
+/* picture :hover{
+    cursor: pointer;
+    opacity:0.5;
+} */
+
+picture div{
+    position: absolute;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(178, 100%, 50%, 0.6);
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+}
+
+picture div:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+picture .main{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+h2{
+    font-weight: var(--fw-medium);
+    font-size: 1.4rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.flex-group{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.flex-group span{
+    font-weight: var(--fw-medium);
+    color: var(--clr-primary-cyan);
+    display: block;
+    margin: auto 0.1rem;
+}
+
+.creator{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-top: 1px solid var(--clr-neutral-very-dark-blue-3);
+}
+.creator p{
+    display: flex;
+    align-items: start;
+    place-content: center;
+    gap: 0.5rem;
+}
+
+.creator img{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100vw;
+    border-style: solid;
+}
+
+
+
