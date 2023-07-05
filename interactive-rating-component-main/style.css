@@ -57,7 +57,7 @@ h6 {
 --clr-neutral-dark-blue: hsl(213, 19%, 18%);
 --clr-neutral-very-dark-blue: hsl(216, 12%, 8%);
 
---gradient-db-to-vdb: radial-gradient(circle at 50% 0%, var(--clr-neutral-dark-blue), var(--clr-neutral-very-dark-blue));
+--gradient-db-to-vdb: radial-gradient(circle at 50% 0%, hsl(213, 19%, 18%), hsl(213, 19%, 18%, 0.2));
 
 --font-default: 'Overpass', sans-serif;
 --fw-regular: 400;
@@ -73,22 +73,103 @@ body {
     min-height: 100vh;
     font-family: var(--font-default);
     font-weight: var(--fw-regular);
-    font-size: 1rem;
+    font-size: 0.86rem;
     color: var(--clr-neutral-light-grey);
     background-color: var(--clr-neutral-very-dark-blue);
 }
 
+h1{
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-neutral-white);
+}
+
 .rating-component{
     display: grid;
+    /* background-color: var(--clr-neutral-dark-blue); */
     background-image: var(--gradient-db-to-vdb);
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 1.5rem;
 
     border-radius: 1rem;
+    gap: 1.5rem;
+    max-width: 20.5rem;
+    /* min-width: 20.5rem;  */
+}
+
+.star-icon-flex{
+    display: flex;
+    align-items: start;
+    /* gap: 0.5rem; */
+}
+
+.star-icon{
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    border-radius: 50%;
+    padding: 0.9rem;
+    width: 2.65rem;
+    height: 2.65rem;
+    background-color: var(--clr-neutral-dark-blue);
+}
+
+.info{
+    display: grid;
+    gap: 0.5rem;
+}
+
+.rating-form{
+    display: grid;
     gap: 1rem;
-    max-width: 20rem;
-    min-width: 20rem;
+}
+
+.rating-options-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 0.6rem; */
+}
+
+.rating-number{
+    place-content: center;
+    text-align: center;
+    border-radius: 50%;
+    width: 2.65rem;
+    height: 2.65rem;
+    padding: 0.9rem;
+    background-color: var(--clr-neutral-dark-blue);
+    transition: all 0.2s ease-in-out;
+}
+
+.rating-number:hover{
+    cursor: pointer;
+    background-color: var(--clr-orange);
+    color: var(--clr-neutral-white);
+}
+
+.rating-number.active{
+    background-color: var(--clr-neutral-medium-grey);
+    color: var(--clr-neutral-white);
+}
+
+.custom-submit input{
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 2rem;
+    border: none;
+    background-color: var(--clr-orange);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--clr-neutral-white);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.custom-submit input:hover{
+    background-color: var(--clr-neutral-white);
+    color: var(--clr-orange);
 }
 
 .thank-you-component {

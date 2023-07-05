@@ -6,7 +6,6 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
   
   <title>Frontend Mentor | Interactive rating component</title>
 
@@ -21,27 +20,32 @@
 
     <div class="container">
       <div class="rating-component">
-        <div class="star-icon">
-          <img src="images/icon-star.svg" alt="star icon">
+        <div class="star-icon-flex">
+          <div class="star-icon">
+            <img src="images/icon-star.svg" alt="star icon">
+          </div>
         </div>
 
-        <h1>How did we do?</h1>
-        <p>
-          Please let us know how we did with your support request. All feedback is appreciated
-          to help us improve our offering!
-        </p>
+        <div class="info">
+          <h1>How did we do?</h1>
+          <p>
+            Please let us know how we did with your support request. All feedback is appreciated
+            to help us improve our offering!
+          </p>
+        </div>
 
-        <form class="rating-form">
-          <div class="rating-options">
-            <span class="rating-number">1</span>
-            <span class="rating-number">2</span>
-            <span class="rating-number">3</span>
-            <span class="rating-number">4</span>
-            <span class="rating-number">5</span>
-          <div class="submit">
-            <input type="submit" value="Submit">
+        <div class="rating-form">
+          <div class="rating-options-flex">
+            <span class="rating-number" data-value="1">1</span>
+            <span class="rating-number" data-value="2">2</span>
+            <span class="rating-number" data-value="3">3</span>
+            <span class="rating-number" data-value="4">4</span>
+            <span class="rating-number" data-value="5">5</span>
           </div>
-        </form>
+          <div class="custom-submit">
+            <input type="button" value="Submit">
+          </div>
+        </div>
       </div>
       
       <div class="thank-you-component">
@@ -57,5 +61,7 @@
       Coded by <a href="#">Your Name Here</a>.
     </div>
 </main>
+
+<script src="script.js"></script>
 </body>
 </html>
