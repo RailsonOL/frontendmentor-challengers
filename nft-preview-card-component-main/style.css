@@ -95,7 +95,7 @@ a:hover{
     display: block;
 }
 
-h2{
+h1{
     font-weight: var(--fw-bold);
     font-size: 1.4rem;
     margin: 0;
