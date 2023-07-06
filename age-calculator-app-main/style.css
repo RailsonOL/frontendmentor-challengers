@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+
+/*
+  START RESET CSS
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/*
+  END RESET CSS
+*/
+
+:root{
+    --color-primary-purple: hsl(259, 100%, 65%);
+    --color-primary-lightred: hsl(0, 100%, 67%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-off-white: hsl(0, 0%, 94%);
+    --color-light-grey: hsl(0, 0%, 86%);
+    --color-smokey-grey: hsl(0, 1%, 44%);
+    --color-off-black: hsl(0, 0%, 8%);
+
+    --font-default: 'Poppins', sans-serif;
+    --fw-regular-italic: 400;
+    --fw-bold: 700;
+    --fw-extra-bold-italic: 800;
+}
+
+
+body{
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    font-family: var(--font-default);
+    /* font-weight: var(--fw-bold); */
+    font-size: 1rem;
+    color: var(--color-smokey-grey);
+
+    background-color: var(--color-off-white);
+}
+
+.age-calculatorapp{
+    display: grid;
+    background-color: var(--color-white);
+    border-radius: 1.5rem 1.5rem 12.55rem 1.5rem;
+    padding: 3.5rem;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 600px){
+    .age-calculatorapp{
+        min-width: 52.5rem;
+        min-height: 40.8rem;
+    }
+}
+
+.date-form{
+    display: flex;
+    gap: 2rem;
+}
+.date-form__day, 
+.date-form__month, 
+.date-form__year{
+    /* border: 1px solid var(--color-light-grey); */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.date-form__day input, 
+.date-form__month input, 
+.date-form__year input{
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-light-grey);
+    padding: 0.7rem 1.1rem;
+    width: 10rem;
+    font-size: 2rem;
+}
+
+.submit-container{
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin-top: -1rem;
+}
+
+.horizontal-line{
+    border-top: 1px solid var(--color-light-grey);
+    width: 100%;
+}
+.submit-button{
+    position: absolute;
+    display: grid;
+    place-items: center;
+    padding: 1.3rem;
+    right: 0em;
+    bottom: -1.5em;
+
+    border-radius: 50%;
+
+    width: 5.5rem;
+    height: 5.5rem;
+
+    background-color: var(--color-primary-purple);
+}
+
+.results{
+    /* margin-top: 2rem; */
+    font-size: 7rem;
+    line-height: 1;
+    font-weight: var(--fw-extra-bold-italic);
+    font-style: italic;
+    color: var(--color-off-black);
+}
+
+.results span{
+    color: var(--color-primary-purple);
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+
+    <div class="age-calculatorapp">
+
+      <div class="date-form">
+        <div class="date-form__day">
+          <label for="day">Day</label>
+          <input type="text" data-id="1" placeholder="DD" />
+        </div>
+
+        <div class="date-form__month">
+          <label for="month">Month</label>
+          <input type="text" data-id="2" placeholder="MM" />
+        </div>
+
+        <div class="date-form__year">
+          <label for="year">Year</label>
+          <input type="text" data-id="3" placeholder="YYYY" />
+        </div>
+      </div>
+
+      <div class="submit-container">
+        <div class="horizontal-line"></div>
+
+        <div class="submit-button">
+          <img src="assets/images/icon-arrow.svg" alt="arrow-icon">
+        </div>
+      </div>
+
+      <div class="results">
+        <div class="results__years">
+          <span class="years-placeholder">--</span> years
+        </div>
+        <div class="results__months">
+          <span class="months-placeholder">--</span> months
+        </div>
+          <span class="days-placeholder">--</span> days
+        </div>
+      </div>
+
+    </div>
+<!-- 
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/RailsonOL?tab=repositories">Zerohora (RailsonOL)</a>.
+    </div> -->
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
