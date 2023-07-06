@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     let ratingNumbers = document.querySelectorAll('span.rating-number');
     let submitButton = document.querySelector('.custom-submit > input');
+    let ratingComponent = document.querySelector('.rating-component');
+    let tnksComponent = document.querySelector('.thank-you-component');
+    let placeHolderSpan = document.querySelector('.placeholder-span');
 
     ratingNumbers.forEach((ratingNumber) => {
         ratingNumber.addEventListener('click', () => {
@@ -16,9 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     submitButton.addEventListener('click', () => {
         let ratingNumberActive = document.querySelector('span.rating-number.active');
-        let ratingNumberActiveValue = ratingNumberActive.innerHTML;
 
-        alert(`Você deu ${ratingNumberActiveValue} estrelas!`);
+        if (ratingNumberActive != null) {
+            placeHolderSpan.innerHTML = ratingNumberActive.innerHTML;
+
+            ratingComponent.classList.add('hidden');
+            tnksComponent.classList.remove('hidden');
+        }
     }
     );
 });
