@@ -28,20 +28,23 @@
 
     <div class="age-calculatorapp">
 
-      <div class="date-form">
+      <div class="date-form" >
         <div class="date-form__day">
           <label for="day">Day</label>
-          <input type="text" data-id="1" placeholder="DD" />
+          <input type="text" maxlength="2" data-id="1" placeholder="DD" />
+          <label class="label-error" for="day"></label>
         </div>
-
+        
         <div class="date-form__month">
           <label for="month">Month</label>
-          <input type="text" data-id="2" placeholder="MM" />
+          <input type="text" maxlength="2" data-id="2" placeholder="MM" />
+          <label class="label-error" for="month"></label>
         </div>
-
+        
         <div class="date-form__year">
           <label for="year">Year</label>
-          <input type="text" data-id="3" placeholder="YYYY" />
+          <input type="text" maxlength="4" data-id="3" placeholder="YYYY" />
+          <label class="label-error" for="year"></label>
         </div>
       </div>
 
@@ -60,6 +63,7 @@
         <div class="results__months">
           <span class="months-placeholder">--</span> months
         </div>
+        <div class="results__days">
           <span class="days-placeholder">--</span> days
         </div>
       </div>
