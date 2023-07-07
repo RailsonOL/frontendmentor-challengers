@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let datForm = document.querySelector('.date-form')
+    let datForms = document.querySelectorAll('.date-form > div')
     let dataInputs = document.querySelectorAll('.date-form > * > input')
     let labelErrors = document.querySelectorAll('.date-form > * > .label-error')
 
@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let yearLabelError = labelErrors[2];
 
     let submitBtn = document.querySelector('.submit-button')
+
+    let yearsPh = document.querySelector('.years-placeholder')
+    let monthsPh = document.querySelector('.months-placeholder')
+    let daysPh = document.querySelector('.days-placeholder')
 
     submitBtn.addEventListener('click', validateDateInput)
 
@@ -33,116 +37,144 @@ document.addEventListener("DOMContentLoaded", function () {
         const yearValue = yearInput.value;
         const validDateRes = validateDate(dayValue, monthValue, yearValue);
 
-        console.log(validDateRes)
-
-        if(!validDateRes.day && !validDateRes.month && !validDateRes.year) {
-            dayLabelError.innerHTML = 'Must be a valid date';
-            return
-        }
-
-        if(validDateRes.day) {
+        if (validDateRes.day.valid) {
             dayLabelError.innerHTML = '';
             dayInput.classList.remove('error');
-        }else{
-            dayLabelError.innerHTML = 'Must be a valid day';
+            datForms[0].classList.remove('error');
+        } else {
+            dayLabelError.innerHTML = validDateRes.day.error;
             dayInput.classList.add('error');
+            datForms[0].classList.add('error');
         }
 
-        if(validDateRes.month) {
+        if (validDateRes.month.valid) {
             monthLabelError.innerHTML = '';
             monthInput.classList.remove('error');
-        }else{
-            monthLabelError.innerHTML = 'Must be a valid month';
+            datForms[1].classList.remove('error');
+        } else {
+            monthLabelError.innerHTML = validDateRes.month.error;
             monthInput.classList.add('error');
+            datForms[1].classList.add('error');
         }
 
-        if(validDateRes.year) {
+        if (validDateRes.year.valid) {
             yearLabelError.innerHTML = '';
             yearInput.classList.remove('error');
-        }else{
-            yearLabelError.innerHTML = 'Must be a valid year';
+            datForms[2].classList.remove('error');
+        } else {
+            yearLabelError.innerHTML = validDateRes.year.error;
             yearInput.classList.add('error');
+            datForms[2].classList.add('error');
         }
-
-        // if (isValid.day) {
-        //     dayLabelError.innerHTML = '';
-        //     datForm.classList.remove('error');
-        //     dayInput.classList.remove('error');
-        // } else {
-        //     dayLabelError.innerHTML = 'Must be a valid day';
-        //     dayInput.classList.add('error');
-        //     datForm
-        // }
-
-        // if (isValid.month) {
-        //     monthLabelError.innerHTML = '';
-        //     monthInput.classList.remove('error');
-        // } else {
-        //     monthLabelError.innerHTML = 'Must be a valid month';
-        //     monthInput.classList.add('error');
-        // }
-
-        // if (isValid.year) {
-        //     yearLabelError.innerHTML = '';
-        //     yearInput.classList.remove('error');
-        // } else {
-        //     yearLabelError.innerHTML = 'Must be a valid year';
-        //     yearInput.classList.add('error');
-        // }
     }
 
-});
+    function validateDate(day, month, year) {
 
-function validateDate(day, month, year) {
-    const date = new Date(year, month - 1, day);
+        yearsPh.innerHTML = '--';
+        monthsPh.innerHTML = '--';
+        daysPh.innerHTML = '--';
 
-    const isValidDate =
-        date.getDate() == day &&
-        date.getMonth() == month - 1 &&
-        date.getFullYear() == year;
+        let res = {
+            day: { valid: true, error: '' },
+            month: { valid: true, error: '' },
+            year: { valid: true, error: '' },
+        }
 
-    console.log(date)
-    console.log(date.getMonth())
+        if (day == '') {
+            res.day.valid = false;
+            res.day.error = 'This field is required';
+        }
 
-    const isInvalidDay = date.getDate() != day;
-    const isInvalidMonth = date.getMonth() != month - 1;
-    const isInvalidYear = date.getFullYear() != year;
+        if (month == '') {
+            res.month.valid = false;
+            res.month.error = 'This field is required';
+        }
 
-    let res = { day: true, month: true, year: true}
+        if (year == '') {
+            res.year.valid = false;
+            res.year.error = 'This field is required';
+        }
 
-    if (!isValidDate) {
-        if (isInvalidDay) {
-            res.day = false;
-        } 
-        if (isInvalidMonth) {
-            res.month = false;
-        } 
-        if (isInvalidYear) {
-            res.year = false;
+        if (day == '' || month == '' || year == '') {
+            return res;
+        }
+
+        if (
+            day < 1 || day > 31
+        ) {
+            res.day.valid = false;
+            res.day.error = 'Must be a valid day';
+        }
+
+        if (month < 1 || month > 12) {
+            res.month.valid = false;
+            res.month.error = 'Must be a valid month';
+        }
+
+        if (year < 1000 || year > 9999) {
+            res.year.valid = false;
+            res.year.error = 'Must be a valid year';
+        }
+
+        if (year > new Date().getFullYear()) {
+            res.year.valid = false;
+            res.year.error = 'Must be in past';
+
+            return res;
+        }
+
+        const date = new Date(year, month - 1, day);
+        const isValidDate =
+            date.getDate() == day &&
+            date.getMonth() == month - 1 &&
+            date.getFullYear() == year;
+
+        if (!isValidDate) {
+            res.day.valid = false;
+            res.day.error = 'Must be a valid date';
+            res.month.valid = false;
+            res.month.error = '';
+            res.year.valid = false;
+            res.year.error = '';
+
+        } else if (isValidDate) {
+            //check is date is in future
+            if (date > new Date()) {
+                res.year.valid = false;
+                res.year.error = 'Must be in past';
+    
+                return res;
+            } else {
+
+                //age calculator
+                const today = new Date();
+                const birthDate = new Date(year, month - 1, day);
+                
+                const yearsDiff = today.getUTCFullYear() - birthDate.getUTCFullYear();
+                const monthsDiff = today.getUTCMonth() - birthDate.getUTCMonth();
+                const daysDiff = today.getUTCDate() - birthDate.getUTCDate();
+                
+                let ageYears = yearsDiff;
+                let ageMonths = monthsDiff;
+                let ageDays = daysDiff;
+                
+                if (daysDiff < 0) {
+                  const lastMonthDate = new Date(today.getUTCFullYear(), today.getUTCMonth(), 0).getUTCDate();
+                  ageMonths--;
+                  ageDays += lastMonthDate;
+                }
+                
+                if (monthsDiff < 0) {
+                  ageYears--;
+                  ageMonths += 12;
+                }
+                
+                yearsPh.innerHTML = ageYears;
+                monthsPh.innerHTML = ageMonths;
+                daysPh.innerHTML = ageDays;
+            }
         }
 
         return res;
     }
-
-    return res;
-}
-
-// function validateDate(day, month, year) {
-//     const dayInt = parseInt(day, 10);
-//     const monthInt = parseInt(month, 10);
-//     const yearInt = parseInt(year, 10);
-
-//     // Validações específicas da data
-//     if (
-//         isNaN(dayInt) || isNaN(monthInt) || isNaN(yearInt) ||
-//         dayInt < 1 || dayInt > 31 ||
-//         monthInt < 1 || monthInt > 12 ||
-//         yearInt < 1000 || yearInt > 9999
-//     ) {
-//         return false;
-//     }
-
-//     const dateObj = new Date(yearInt, monthInt - 1, dayInt);
-
-//     return { day: dateObj.getDate(), month: dateObj.getMonth() + 1, year: dateObj.getFullYear() }
-// }
+});
