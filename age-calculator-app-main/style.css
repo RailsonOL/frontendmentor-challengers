@@ -191,6 +191,11 @@ input.error{
     border-color: var(--color-primary-lightred);
 }
 
+.error{
+    color: var(--color-primary-lightred);
+    border-color: var(--color-primary-lightred);
+}
+
 .label-error{
     font-style: italic;
     font-weight: var(--fw-regular);
