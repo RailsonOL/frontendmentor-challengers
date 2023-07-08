@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <div class="newsletter-component">
+      <div class="subscribe-container">
+        <picture class="subscribe__image">
+          <source media="(min-width: 600px)" srcset="assets/images/illustration-sign-up-desktop.svg">
+          <img src="assets/images/illustration-sign-up-mobile.svg" alt="Preview">
+        </picture>
+
+        <div class="subscribe__info">
+          <section class="information">
+            <h1>Stay updated!</h1>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+            <ul class="benefits-list">
+              <li>Product discovery and building what matters</li>
+              <li>Measuring to ensure updates are a success</li>
+              <li>And much more!</li>
+            </ul>
+          </section>
+          <div class="signup-form">
+            <div class="email-input-container">
+              <div class="flex-group">
+                <label for="email">Email address</label>
+                <label class="error" for="email-error"></label>
+              </div>
+              <input type="text" for="email" placeholder="email@company.com"></input>
+            </div>
+            <button id="subscribe">Subscribe to monthly newsletter</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tnks-msg-container hidden">
+        <div class="res">
+          <div class="tnks-header">
+            <img src="assets/images/icon-success.svg" class="success-icon" alt="success">
+            <h1>Thanks for subscribing!</h1>
+          </div>
+          <p>
+            A confirmation email has been sent to <strong id="emailToShow">ash@loremcompany.com</strong>.
+            Please open it and click the button inside to confirm your subscription.
+          </p>
+        </div>
+
+        <button class="dimiss-btn">Dismiss message</button>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/RailsonOL?tab=repositories">Zerohora (RailsonOL)</a>.
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
