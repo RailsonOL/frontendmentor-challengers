@@ -1,4 +1,4 @@
 # FrontendMentor
 Studying frontend
 
-[Live Pages](https://railsonol.github.io/frontendmentor-challengers/)
+[Live Pages](https://zerohora00h.github.io/frontendmentor-challengers/)
