@@ -77,6 +77,12 @@
   span{
     font-weight: 700;
   }
+  
+  h1{
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
 
   .card {
     display: flex;
